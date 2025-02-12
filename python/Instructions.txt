@@ -1,0 +1,1 @@
+.env file should exist with API key and secret.

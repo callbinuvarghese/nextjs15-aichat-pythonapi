@@ -1,0 +1,88 @@
+
+#https://www.youtube.com/watch?v=mwAC1ZujtOc
+
+➜  brew install pnpm
+
+➜  mkdir shadcn-chat1
+➜  cd shadcn-chat1
+
+➜  shad-chat1 git:(main) ✗ npx shadcn@latest add https://shadcn-chatbot-kit.vercel.app/r/chat.json
+✔ Checking registry.
+✔ Updating tailwind.config.ts
+  Installing dependencies.
+
+It looks like you are using React 19.
+Some packages may fail to install due to peer dependency issues in npm (see https://ui.shadcn.com/react-19).
+
+✔ How would you like to proceed? › Use --force
+✔ Installing dependencies.
+✔ The file chat.tsx already exists. Would you like to overwrite? … no
+✔ The file button.tsx already exists. Would you like to overwrite? … no
+✔ The file use-auto-scroll.ts already exists. Would you like to overwrite? … no
+✔ The file chat-message.tsx already exists. Would you like to overwrite? … no
+✔ The file copy-button.tsx already exists. Would you like to overwrite? … no
+✔ The file use-copy-to-clipboard.ts already exists. Would you like to overwrite? … no
+✔ The file sonner.tsx already exists. Would you like to overwrite? … no
+✔ The file markdown-renderer.tsx already exists. Would you like to overwrite? … no
+✔ The file message-input.tsx already exists. Would you like to overwrite? … no
+✔ The file use-autosize-textarea.ts already exists. Would you like to overwrite? … no
+✔ The file file-preview.tsx already exists. Would you like to overwrite? … no
+✔ The file message-list.tsx already exists. Would you like to overwrite? … no
+✔ The file typing-indicator.tsx already exists. Would you like to overwrite? … no
+✔ The file prompt-suggestions.tsx already exists. Would you like to overwrite? … no
+ℹ Skipped 14 files: (use --overwrite to overwrite)
+  - components/ui/chat.tsx
+  - components/ui/button.tsx
+  - hooks/use-auto-scroll.ts
+  - components/ui/chat-message.tsx
+  - components/ui/copy-button.tsx
+  - hooks/use-copy-to-clipboard.ts
+  - components/ui/sonner.tsx
+  - components/ui/markdown-renderer.tsx
+  - components/ui/message-input.tsx
+  - hooks/use-autosize-textarea.ts
+  - components/ui/file-preview.tsx
+  - components/ui/message-list.tsx
+  - components/ui/typing-indicator.tsx
+  - components/ui/prompt-suggestions.tsx
+
+➜  shad-chat1 git:(main) ✗
+➜  shad-chat1 git:(main) ✗ pnpm add ai
+Downloading next@15.1.0: 25.31 MB/25.31 MB, done
+Downloading @next/swc-darwin-x64@15.1.0: 42.77 MB/42.77 MB, done
+Downloading @img/sharp-libvips-darwin-x64@1.0.4: 7.98 MB/7.98 MB, done
+Packages: +503
+
+
+➜  pnpm add @ai-sdk/openai
+➜  npx shadcn@latest add card
+
+Added files: 
+/api/chat/route.ts
+  All the API calling is implemented in this file
+/components/chat-demo.tsx
+  All the chat response processing and API calling is here
+Customised files: 
+/components/ui/chat-message.tsx
+    # to log the messages after adding contentType
+    import React, { useMemo, useEffect } from "react"
+    useEffect(() => {
+      console.log("ChatMessage contentType:", contentType); // Log the contentType
+    }, [contentType]);
+
+    # to render HTML inside div
+
+      <div className={cn(chatBubbleVariants({ isUser, animation }), className)}>
+        <div>{/* This is customized */}
+          {contentType === "text/html" ? ( // Conditionally render based on contentType. Render HTML or Markdown/text
+            <div dangerouslySetInnerHTML={{ __html: content }} /> 
+          ) : (
+            <MarkdownRenderer>{content}</MarkdownRenderer> // Render Markdown/text
+          )}
+        </div>
+/components/ui/chat.tsx ( minimal?)
+/components/ui/message-list.tsx ( minimal?)
+
+To run this in development mode
+
+➜  pnpm dev

@@ -1,0 +1,47 @@
+# Python and related files
+__pycache__/
+*.pyc
+*.pyd
+*.egg
+.venv
+venv/
+env/
+.env  # Environment variables (important!)
+*.swp  # Swap files (editor/OS)
+*.swo  # Swap files (editor/OS)
+*.swn  # Swap files (editor/OS)
+*.bak  # Backup files
+*.tmp  # Temporary files
+*.scc  # Scram cache files (PyCharm)
+
+# Distribution and build files
+dist/
+build/
+*.whl
+*.tar.gz
+*.zip
+
+# Log files
+*.log
+
+# Editor and IDE files (customize as needed)
+.idea/
+.vscode/
+*.iml
+.DS_Store  # macOS Desktop Services Store
+Thumbs.db   # Windows thumbnail cache
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# MyPy cache
+.mypy_cache/
+
+# Other
+__pycache__/*
+.pytest_cache/
+.coverage
+htmlcov/
+.tox
+.flake8
+notebooks/.ipynb_checkpoints
